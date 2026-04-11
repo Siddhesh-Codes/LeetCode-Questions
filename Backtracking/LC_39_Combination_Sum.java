@@ -62,7 +62,6 @@ class Solution {
         }
 
         // Skip Choice
-
         fun(arr, target, idx + 1, ans, temp, sum);
 
         // Include Choice
