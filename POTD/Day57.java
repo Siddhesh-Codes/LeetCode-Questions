@@ -1,5 +1,4 @@
 // 2515. Shortest Distance to Target String in a Circular Array
-// 2515. Shortest Distance to Target String in a Circular Array
 
 // Mistake Log:
 // 1. Trying to simulate the movement: Attempting to move left (i - 1 + n) % n or right (i + 1) % n step-by-step is technically correct but harder to implement and prone to infinite loops or off-by-one errors.
