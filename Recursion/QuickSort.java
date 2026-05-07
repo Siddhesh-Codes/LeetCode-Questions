@@ -40,6 +40,7 @@ public class QuickSort {
         int i = low;
         int j = high;
         
+        // Sort in Descending Order
         while (i < j) {
             while (arr[i] <= pivot && i < high) {
                 i++;
@@ -53,8 +54,25 @@ public class QuickSort {
                 int temp = arr[i];
                 arr[i] = arr[j];
                 arr[j] = temp;               
-            }
+            }        
         }
+        
+        // Sort in Ascending Order
+        // while (i < j) {
+        //     while (arr[i] > pivot && i < high) {
+        //         i++;
+        //     }
+
+        //     while (arr[j] <= pivot && j > low) {
+        //         j--;
+        //     }
+
+        //     if (i < j) {
+        //         int temp = arr[i];
+        //         arr[i] = arr[j];
+        //         arr[j] = temp;               
+        //     }
+        // }
         
         // for (int j = low + 1; j <= high; j++) {
         //     if (arr[j] < pivot) {
