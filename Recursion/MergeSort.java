@@ -24,19 +24,36 @@ public class MergeSort {
 
     // Merge Sort (using Recursion)
     static void mergeSort(int[] arr, int low, int high, int n) {
+        // Base case: If the array has one or zero elements, it's already sorted
         if (low >= high) {
             return;
         }
+        
+        // Find the midpoint of the array 
+        // WHY? - To split the array into two halves for recursive sorting
         int mid = (low + high) >>> 1;
+
+        // Recursively sort the left and right halves
+        // WHY? - To break down the problem into smaller subproblems until we reach the base case
         mergeSort(arr, low, mid, n);
         mergeSort(arr, mid + 1, high, n);
+
+        // Merge the sorted halves
+        // WHY? - To combine the sorted halves back into a single sorted array
         merge(arr, low, mid, high, n);
     }
 
     // Merge final arrays
     static void merge(int[] arr, int low, int mid, int high, int n) {
+        // Create a temporary list to hold the merged result
+        // WHY? - To store the merged elements before copying them back to the original array
         List<Integer> temp = new ArrayList<>();
+
+        // Merge the two halves while maintaining sorted order
+        // WHY? - To combine the sorted elements from both halves in the correct order
         int left = low, right = mid + 1;
+
+        // Compare elements from both halves and add the smaller one to the temp list
         while (left <= mid && right <= high) {
             if (arr[left] <= arr[right]) {
                 temp.add(arr[left]);
@@ -47,15 +64,23 @@ public class MergeSort {
             }
         }
         
+        // If there are remaining elements in the left half, add them to temp
+        // WHY? - To include any leftover elements from the left half that haven't been added to temp yet
         while (left <= mid) {
             temp.add(arr[left]);
             left++;
         } 
         
+        // If there are remaining elements in the right half, add them to temp
+        // WHY? - To include any leftover elements from the right half that haven't been added to temp yet
         while (right <= high) {
             temp.add(arr[right]);
             right++;
         }
+
+        // Copy the merged result back into the original array
+        // WHY? - To update the original array with the sorted elements from temp
+        // WHY to start from 'low' and go to 'high'? - Because we are merging the subarray defined by these indices, and we need to ensure we copy back to the correct portion of the original array
 
         for (int i = low; i <= high; i++) {
             arr[i] = temp.get(i - low);
