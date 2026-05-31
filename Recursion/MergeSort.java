@@ -109,9 +109,3 @@ public class MergeSort {
 // 4. Merge copy-back loop bounds were incorrect.
 //    Before: for (int i = low; i < temp.size(); i++) { arr[i] = temp.get(i - low); }
 //    After:  for (int i = low; i <= high; i++) { arr[i] = temp.get(i - low); }
-
-// Issues fixed in this implementation:
-// 1. Base case was incorrect; should be 'low >= high'.
-// 2. Recursive calls were wrong; should split at mid.
-// 3. Initial call used wrong high index; should be n-1.
-// 4. Merge copy-back loop bounds were incorrect.
